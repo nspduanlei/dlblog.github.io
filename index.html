@@ -343,9 +343,9 @@
             <p><strong>先谈谈作用域</strong></p>
 <blockquote>
 <ul>
-<li>什么是作用域: <br><br>就是某个变量有起作用的范围</li>
-<li>词法作用域和动态作用域:<br><br> 词法作用域：在变量声明的时候，它的作用域就已经确定了；<br><br> 动态作用域：在程序运行的时候，由程序的当前上下文（执行环境）决定的；<br></li>
-<li>js属于词法作用域 <br><br> 词法作用域的访问规则：<br><br> &nbsp; &nbsp; 先在当前作用域中查找，如果找到就直接使用，如果没有找到，那么就到上一级作用域中查找，如果还没有找到那么就重复这个查找过程，直到全局作用域。</li>
+<li>什么是作用域:<br>就是某个变量有起作用的范围</li>
+<li>词法作用域和动态作用域:<br> 词法作用域：在变量声明的时候，它的作用域就已经确定了；<br> 动态作用域：在程序运行的时候，由程序的当前上下文（执行环境）决定的；</li>
+<li>js属于词法作用域<br> 词法作用域的访问规则：<br> &nbsp; &nbsp; 先在当前作用域中查找，如果找到就直接使用，如果没有找到，那么就到上一级作用域中查找，如果还没有找到那么就重复这个查找过程，直到全局作用域。</li>
 </ul>
 </blockquote>
 <h3 id="JS中的作用域"><a href="#JS中的作用域" class="headerlink" title="JS中的作用域"></a>JS中的作用域</h3><ol>
@@ -358,26 +358,15 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">//undefined 而不是报错</span></div><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line">f1(); <span class="comment">//f1  而不是报错</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"f1"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>上面一段js代码，会先把var a与fun函数提前声明，所以代码实际可模拟成先这段代码</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a; <span class="comment">//变量提前声明，但未定义</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123; <span class="comment">//函数提前声明</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"f1"</span>)</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">//声明为定义结果为undefined</span></div><div class="line">a = <span class="number">10</span></div><div class="line">f1(); <span class="comment">//结果为f1</span></div></pre></td></tr></table></figure>
-<p>经过上面的解析，结果便可以理解了。<br>具体会出现的一些问题和几种情况：</p>
-<ol>
-<li>变量和变量同名的情况，后面的变量会把前面的变量覆盖。</li>
-</ol>
+<p>经过上面的解析，结果便可以理解了。<br>具体会出现的一些问题和几种情况：<br>1.变量和变量同名的情况，后面的变量会把前面的变量覆盖。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n1 = <span class="string">"n1"</span>;</div><div class="line"><span class="built_in">console</span>.log(n1); <span class="comment">//n1</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n1)</div><div class="line">&#125;</div><div class="line">test(); <span class="comment">//n1</span></div><div class="line"><span class="keyword">var</span> n1 = <span class="string">"new n1"</span> <span class="comment">//覆盖之前n1的值</span></div><div class="line"><span class="built_in">console</span>.log(n1); <span class="comment">//new n1</span></div><div class="line">test() <span class="comment">//new n1</span></div></pre></td></tr></table></figure>
-<ol>
-<li>函数和函数同名的情况，后面的函数会覆盖前面的函数。</li>
-</ol>
+<p>2.函数和函数同名的情况，后面的函数会覆盖前面的函数。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">f1(); <span class="comment">//20</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">10</span>);</div><div class="line">&#125;</div><div class="line">f1(); <span class="comment">//20</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">20</span>);</div><div class="line">&#125;</div><div class="line">f1(); <span class="comment">//20</span></div></pre></td></tr></table></figure>
-<ol>
-<li>函数和变量同名，可以理解为：函数声明提升，而变量的声明不提升（实际上变量也提升了，但是会被函数覆盖）。</li>
-</ol>
+<p>3.函数和变量同名，可以理解为：函数声明提升，而变量的声明不提升（实际上变量也提升了，但是会被函数覆盖）。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(demo); <span class="comment">//function demo() &#123;console.log(我是函数)&#125;</span></div><div class="line"><span class="keyword">var</span> demo = <span class="string">"我是字符串"</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"我是函数"</span>)</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(demo); <span class="comment">//我是字符串</span></div></pre></td></tr></table></figure>
-<ol>
-<li>变量提升是分作用域的</li>
-</ol>
+<p>4.变量提升是分作用域的</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="number">5</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(num); <span class="comment">//undefined</span></div><div class="line">    <span class="keyword">var</span> num = <span class="number">10</span>; <span class="comment">//此处函数test1作用域中有声明变量num， 会提升声明, 但不会赋值</span></div><div class="line">&#125;</div><div class="line">test1()</div></pre></td></tr></table></figure>
-<ol>
-<li>如果函数是函数表达式定义，那么在做函数声明提升的时候，仅仅只会把var变量的名字提升到当前作用域中</li>
-</ol>
+<p>5.如果函数是函数表达式定义，那么在做函数声明提升的时候，仅仅只会把var变量的名字提升到当前作用域中</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(func) <span class="comment">//undefined</span></div><div class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 此处只是提升声明var func， 所以为undefined</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"func"</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> func = <span class="string">"我是MT"</span></div><div class="line"><span class="built_in">console</span>.log(func); <span class="comment">//'我是MT'</span></div></pre></td></tr></table></figure>
 <h3 id="深入理解-Hoisting"><a href="#深入理解-Hoisting" class="headerlink" title="深入理解 Hoisting"></a>深入理解 Hoisting</h3><p>上面描述的是关于ES5中的声明提升，即使用var声明的变量的声明提升。 有人说在ES6中用<br>let和const声明的变量不会发生声明提升，那究竟是不是这样呢？<br>我们先来看一段代码。</p>
 <figure class="highlight plain"><figcaption><span>6</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(a); //ReferenceError</div><div class="line">let a = 1</div></pre></td></tr></table></figure>
@@ -395,7 +384,7 @@
 <figure class="highlight plain"><figcaption><span>6</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a = a //没问题</div><div class="line">let b = b //ReferenceError, 在这里b并没有被初始化，还处在TDZ当中</div></pre></td></tr></table></figure>
 <p>再看下面一个例子</p>
 <figure class="highlight plain"><figcaption><span>6</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var x = 1;</div><div class="line">function foo(x = x) &#123; //x = x 代表如果不传指，则参数x 会取 x 为默认值</div><div class="line">    //...</div><div class="line">&#125;</div><div class="line">foo() //ReferenceError: x is not defined</div></pre></td></tr></table></figure>
-<p>上面的代码中，<code>x = x</code> 形成了一个单独作用域。实际执行的是<code>let x = x</code>，由于暂时性死区的原因，这行代码会报错。</p>
+<p>上面的代码中，<code>x = x</code> 形成了一个单独作用域（context），等到初始化结束，这个作用域就会消失，实际执行的是<code>let x = x</code>，由于暂时性死区的原因，这行代码会报错。</p>
 <p><strong>引用</strong></p>
 <ul>
 <li><a href="http://www.jianshu.com/p/ebc51ce05416" target="_blank" rel="external">http://www.jianshu.com/p/ebc51ce05416</a></li>
