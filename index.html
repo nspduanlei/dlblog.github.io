@@ -549,8 +549,71 @@ strong, em, ins, del, code
 :enabled  
 :disabled 控制表单控件的禁用状态。
 :checked单选框或复选框被选中。
-</code></pre><h4 id="如何居中div？"><a href="#如何居中div？" class="headerlink" title="如何居中div？"></a>如何居中div？</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">   <span class="comment">/*水平居中：给div设置一个宽度，然后添加margin:0 auto属性*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">       <span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">       <span class="attribute">margin</span>:<span class="number">0</span> auto;</div><div class="line">&#125;</div><div class="line"></div><div class="line">   <span class="comment">/*让绝对定位的div居中*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">       <span class="attribute">position</span>: absolute;</div><div class="line">       <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">       <span class="attribute">height</span>: <span class="number">300px</span>;</div><div class="line">       <span class="attribute">margin</span>: auto;</div><div class="line">       <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">       <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">       <span class="attribute">bottom</span>: <span class="number">0</span>;</div><div class="line">       <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line">       <span class="attribute">background-color</span>: pink;	<span class="comment">/* 方便看效果 */</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*水平垂直居中一</span></div><div class="line"></div><div class="line">确定容器的宽高 宽500 高 300 的层</div><div class="line">设置层的外边距</div><div class="line">   */</div><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">       <span class="attribute">position</span>: relative;<span class="comment">/* 相对定位或绝对定位均可 */</span></div><div class="line">       <span class="attribute">width</span>:<span class="number">500px</span>;</div><div class="line">       <span class="attribute">height</span>:<span class="number">300px</span>;</div><div class="line">       <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">       <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">       <span class="attribute">margin</span>: -<span class="number">150px</span> <span class="number">0</span> <span class="number">0</span> -<span class="number">250px</span>;     	<span class="comment">/* 外边距为自身宽高的一半 */</span></div><div class="line">       <span class="attribute">background-color</span>: pink;	 	<span class="comment">/* 方便看效果 */</span></div><div class="line"> &#125;</div><div class="line"></div><div class="line"><span class="comment">/*水平垂直居中二</span></div><div class="line"></div><div class="line">未知容器的宽高，利用 `transform` 属性*/</div><div class="line"></div><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">       <span class="attribute">position</span>: absolute;<span class="comment">/* 相对定位或绝对定位均可 */</span></div><div class="line">       <span class="attribute">width</span>:<span class="number">500px</span>;</div><div class="line">       <span class="attribute">height</span>:<span class="number">300px</span>;</div><div class="line">       <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">       <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">       <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</div><div class="line">       <span class="attribute">background-color</span>: pink;	 	<span class="comment">/* 方便看效果 */</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*水平垂直居中三</span></div><div class="line"></div><div class="line">利用 flex 布局</div><div class="line">实际使用时应考虑兼容性*/</div><div class="line"></div><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">       <span class="attribute">display</span>: flex;</div><div class="line">       <span class="attribute">align-items</span>: center; <span class="comment">/* 垂直居中 */</span></div><div class="line">       <span class="attribute">justify-content</span>: center;	<span class="comment">/* 水平居中 */</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container</span> <span class="selector-tag">div</span> &#123;</div><div class="line">       <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">       <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">       <span class="attribute">background-color</span>: pink;<span class="comment">/* 方便看效果 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="display有哪些值？说明他们的作用。"><a href="#display有哪些值？说明他们的作用。" class="headerlink" title="display有哪些值？说明他们的作用。"></a>display有哪些值？说明他们的作用。</h4><pre><code>block           块类型。默认宽度为父元素宽度，可设置宽高，换行显示。
+</code></pre><h4 id="如何居中div？"><a href="#如何居中div？" class="headerlink" title="如何居中div？"></a>如何居中div？</h4><pre><code>水平居中：给div设置一个宽度，然后添加margin:0 auto属性
+
+div {
+    width:200px;
+    margin:0 auto;
+}
+
+让绝对定位的div居中
+
+div {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: pink;    /* 方便看效果 */
+}
+
+水平垂直居中一
+
+确定容器的宽高 宽500 高 300 的层
+设置层的外边距
+
+div {
+    position: relative;/* 相对定位或绝对定位均可 */
+    width:500px;
+    height:300px;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -250px;         /* 外边距为自身宽高的一半 */
+    background-color: pink;         /* 方便看效果 */
+ }
+
+水平垂直居中二 
+未知容器的宽高，利用 `transform` 属性
+
+div {
+    position: absolute;/* 相对定位或绝对定位均可 */
+    width:500px;
+    height:300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: pink;         /* 方便看效果 */
+}
+
+水平垂直居中三
+
+利用 flex 布局
+实际使用时应考虑兼容性
+
+.container {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    justify-content: center;    /* 水平居中 */
+}
+.container div {
+    width: 100px;
+    height: 100px;
+    background-color: pink;/* 方便看效果 */
+}  
+</code></pre><h4 id="display有哪些值？说明他们的作用。"><a href="#display有哪些值？说明他们的作用。" class="headerlink" title="display有哪些值？说明他们的作用。"></a>display有哪些值？说明他们的作用。</h4><pre><code>block           块类型。默认宽度为父元素宽度，可设置宽高，换行显示。
 none    缺省值。象行内元素类型一样显示。
 inline          行内元素类型。默认宽度为内容宽度，不可设置宽高，同行显示。
 inline-block  默认宽度为内容宽度，可以设置宽高，同行显示。
@@ -568,7 +631,7 @@ static
 inherit
   规定从父元素继承 position 属性的值。
 </code></pre><h4 id="CSS3有哪些新特性？"><a href="#CSS3有哪些新特性？" class="headerlink" title="CSS3有哪些新特性？"></a>CSS3有哪些新特性？</h4><pre><code>新增各种CSS选择器    （: not(.input)：所有 class 不是“input”的节点）
-  圆角    （border-radius:8px）
+圆角    （border-radius:8px）
 多列布局        （multi-column layout）
 阴影和反射    （Shadow\Reflect）
 文字特效（text-shadow、）
@@ -607,8 +670,90 @@ inherit
 
   首先，巧妙的使用“\9”这一标记，将IE游览器从所有情况中分离出来。
   接着，再次使用“+”将IE8和IE7、IE6分离开来，这样IE8已经独立识别。
-</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div></pre></td><td class="code"><pre><div class="line">.bb&#123;</div><div class="line">    background-color:red;/*所有识别*/</div><div class="line">    background-color:#00deff\9; /*IE6、7、8识别*/</div><div class="line">    +background-color:#a200ff;/*IE6、7识别*/</div><div class="line">    _background-color:#1e0bd1;/*IE6识别*/</div><div class="line">&#125;</div><div class="line">```  </div><div class="line">	  </div><div class="line">    *  IE下,可以使用获取常规属性的方法来获取自定义属性,</div><div class="line">       也可以使用getAttribute()获取自定义属性;</div><div class="line">       Firefox下,只能使用getAttribute()获取自定义属性。</div><div class="line">       解决方法:统一通过getAttribute()获取自定义属性。</div><div class="line">    </div><div class="line">    *  IE下,even对象有x,y属性,但是没有pageX,pageY属性;</div><div class="line">       Firefox下,event对象有pageX,pageY属性,但是没有x,y属性。</div><div class="line">    </div><div class="line">    *  解决方法：（条件注释）缺点是在IE浏览器下可能会增加额外的HTTP请求数。</div><div class="line">    </div><div class="line">    *  Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示,</div><div class="line">       可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决。</div><div class="line">    </div><div class="line">    超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序:</div><div class="line">            L-V-H-A :  a:link &#123;&#125; a:visited &#123;&#125; a:hover &#123;&#125; a:active &#123;&#125;</div><div class="line"></div><div class="line"></div><div class="line">#### li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</div><div class="line"></div><div class="line">行框的排列会受到中间空白（回车\空格）等的影响，因为空格也属于字符,这些空白也会被应用样式，占据空间，所以会有间隔，把字符大小设为0，就没有空格了。</div><div class="line"></div><div class="line"></div><div class="line">#### 为什么要初始化CSS样式。</div><div class="line"></div><div class="line">    - 因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。</div><div class="line">    </div><div class="line">    - 当然，初始化样式会对SEO有一定的影响，但鱼和熊掌不可兼得，但力求影响最小的情况下初始化。</div><div class="line">    </div><div class="line">    最简单的初始化方法： * &#123;padding: 0; margin: 0;&#125; （强烈不建议）</div><div class="line"></div><div class="line">淘宝的样式初始化代码:</div><div class="line"></div><div class="line">    body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td &#123; margin:0; padding:0; &#125;</div><div class="line">    body, button, input, select, textarea &#123; font:12px/1.5tahoma, arial, \5b8b\4f53; &#125;</div><div class="line">    h1, h2, h3, h4, h5, h6&#123; font-size:100%; &#125;</div><div class="line">    address, cite, dfn, em, var &#123; font-style:normal; &#125;</div><div class="line">    code, kbd, pre, samp &#123; font-family:couriernew, courier, monospace; &#125;</div><div class="line">    small&#123; font-size:12px; &#125;</div><div class="line">    ul, ol &#123; list-style:none; &#125;</div><div class="line">    a &#123; text-decoration:none; &#125;</div><div class="line">    a:hover &#123; text-decoration:underline; &#125;</div><div class="line">    sup &#123; vertical-align:text-top; &#125;</div><div class="line">    sub&#123; vertical-align:text-bottom; &#125;</div><div class="line">    legend &#123; color:#000; &#125;</div><div class="line">    fieldset, img &#123; border:0; &#125;</div><div class="line">    button, input, select, textarea &#123; font-size:100%; &#125;</div><div class="line">    table &#123; border-collapse:collapse; border-spacing:0; &#125;</div><div class="line"></div><div class="line">#### absolute的containing block(容器块)计算方式跟正常流有什么不同？</div><div class="line"></div><div class="line">    无论属于哪种，都要先找到其祖先元素中最近的 position 值不为 static 的元素，然后再判断：</div><div class="line">    1、若此元素为 inline 元素，则 containing block 为能够包含这个元素生成的第一个和最后一个 inline box 的 padding box (除 margin, border 外的区域) 的最小矩形；</div><div class="line">    2、否则,则由这个祖先元素的 padding box 构成。</div><div class="line">    如果都找不到，则为 initial containing block。</div><div class="line">    </div><div class="line">    补充：</div><div class="line">    1. static(默认的)/relative：简单说就是它的父元素的内容框（即去掉padding的部分）</div><div class="line">    2. absolute: 向上找最近的定位为absolute/relative的元素</div><div class="line">    3. fixed: 它的containing block一律为根元素(html/body)，根元素也是initial containing block</div><div class="line"></div><div class="line">#### CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？</div><div class="line"></div><div class="line">    对于普通元素visibility:collapse;会将元素完全隐藏,不占据页面布局空间,与display:none;表现相同.</div><div class="line">    如果目标元素为table,visibility:collapse;将table隐藏,但是会占据页面布局空间.</div><div class="line">    仅在Firefox下起作用,IE会显示元素,Chrome会将元素隐藏,但是占据空间.</div><div class="line"></div><div class="line">#### position跟display、margin collapse、overflow、float这些特性相互叠加后会怎么样？</div><div class="line"></div><div class="line">    如果元素的display为none,那么元素不被渲染,position,float不起作用,如果元素拥有position:absolute;或者position:fixed;属性那么元素将为绝对定位,float不起作用.如果元素float属性不是none,元素会脱离文档流,根据float属性值来显示.有浮动,绝对定位,inline-block属性的元素,margin不会和垂直方向上的其他元素margin折叠.</div><div class="line">	</div><div class="line">#### 对BFC规范(块级格式化上下文：block formatting context)的理解？</div><div class="line"></div><div class="line">    （W3C CSS 2.1 规范中的一个概念,它是一个独立容器，决定了元素如何对其内容进行定位,以及与其他元素的关系和相互作用。）</div><div class="line">     一个页面是由很多个 Box 组成的,元素的类型和 display 属性,决定了这个 Box 的类型。</div><div class="line">     不同类型的 Box,会参与不同的 Formatting Context（决定如何渲染文档的容器）,因此Box内的元素会以不同的方式渲染,也就是说BFC内部的元素和外部的元素不会互相影响。</div><div class="line"></div><div class="line">#### css定义的权重</div><div class="line"></div><div class="line">    以下是权重的规则：标签的权重为1，class的权重为10，id的权重为100，以下例子是演示各种定义的权重值：</div><div class="line">```css</div><div class="line">    /*权重为1*/</div><div class="line">    div&#123;</div><div class="line">    &#125;</div><div class="line">    /*权重为10*/</div><div class="line">    .class1&#123;</div><div class="line">    &#125;</div><div class="line">    /*权重为100*/</div><div class="line">    #id1&#123;</div><div class="line">    &#125;</div><div class="line">    /*权重为100+1=101*/</div><div class="line">    #id1 div&#123;</div><div class="line">    &#125;</div><div class="line">    /*权重为10+1=11*/</div><div class="line">    .class1 div&#123;</div><div class="line">    &#125;</div><div class="line">    /*权重为10+10+1=21*/</div><div class="line">    .class1 .class2 div&#123;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>如果权重相同，则最后定义的样式会起作用，但是应该避免这种情况出现</p>
+
+
+
+.bb{
+    background-color:red;/*所有识别*/
+    background-color:#00deff\9; /*IE6、7、8识别*/
+    +background-color:#a200ff;/*IE6、7识别*/
+    _background-color:#1e0bd1;/*IE6识别*/
+}
+
+*  IE下,可以使用获取常规属性的方法来获取自定义属性,
+   也可以使用getAttribute()获取自定义属性;
+   Firefox下,只能使用getAttribute()获取自定义属性。
+   解决方法:统一通过getAttribute()获取自定义属性。
+
+*  IE下,even对象有x,y属性,但是没有pageX,pageY属性;
+   Firefox下,event对象有pageX,pageY属性,但是没有x,y属性。
+
+*  解决方法：（条件注释）缺点是在IE浏览器下可能会增加额外的HTTP请求数。
+
+*  Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示,
+   可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决。
+
+超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序:
+        L-V-H-A :  a:link {} a:visited {} a:hover {} a:active {}
+</code></pre><h4 id="li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？"><a href="#li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？" class="headerlink" title="li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？"></a>li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</h4><p>行框的排列会受到中间空白（回车\空格）等的影响，因为空格也属于字符,这些空白也会被应用样式，占据空间，所以会有间隔，把字符大小设为0，就没有空格了。</p>
+<h4 id="为什么要初始化CSS样式。"><a href="#为什么要初始化CSS样式。" class="headerlink" title="为什么要初始化CSS样式。"></a>为什么要初始化CSS样式。</h4><pre><code>- 因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。
+
+- 当然，初始化样式会对SEO有一定的影响，但鱼和熊掌不可兼得，但力求影响最小的情况下初始化。
+
+最简单的初始化方法： * {padding: 0; margin: 0;} （强烈不建议）
+</code></pre><p>淘宝的样式初始化代码:</p>
+<pre><code>body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; }
+</code></pre><h4 id="absolute的containing-block-容器块-计算方式跟正常流有什么不同？"><a href="#absolute的containing-block-容器块-计算方式跟正常流有什么不同？" class="headerlink" title="absolute的containing block(容器块)计算方式跟正常流有什么不同？"></a>absolute的containing block(容器块)计算方式跟正常流有什么不同？</h4><pre><code>无论属于哪种，都要先找到其祖先元素中最近的 position 值不为 static 的元素，然后再判断：
+1、若此元素为 inline 元素，则 containing block 为能够包含这个元素生成的第一个和最后一个 inline box 的 padding box (除 margin, border 外的区域) 的最小矩形；
+2、否则,则由这个祖先元素的 padding box 构成。
+如果都找不到，则为 initial containing block。
+
+补充：
+1. static(默认的)/relative：简单说就是它的父元素的内容框（即去掉padding的部分）
+2. absolute: 向上找最近的定位为absolute/relative的元素
+3. fixed: 它的containing block一律为根元素(html/body)，根元素也是initial containing block
+</code></pre><h4 id="CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？"><a href="#CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？" class="headerlink" title="CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？"></a>CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？</h4><pre><code>对于普通元素visibility:collapse;会将元素完全隐藏,不占据页面布局空间,与display:none;表现相同.
+如果目标元素为table,visibility:collapse;将table隐藏,但是会占据页面布局空间.
+仅在Firefox下起作用,IE会显示元素,Chrome会将元素隐藏,但是占据空间.
+</code></pre><h4 id="position跟display、margin-collapse、overflow、float这些特性相互叠加后会怎么样？"><a href="#position跟display、margin-collapse、overflow、float这些特性相互叠加后会怎么样？" class="headerlink" title="position跟display、margin collapse、overflow、float这些特性相互叠加后会怎么样？"></a>position跟display、margin collapse、overflow、float这些特性相互叠加后会怎么样？</h4><pre><code>如果元素的display为none,那么元素不被渲染,position,float不起作用,如果元素拥有position:absolute;或者position:fixed;属性那么元素将为绝对定位,float不起作用.如果元素float属性不是none,元素会脱离文档流,根据float属性值来显示.有浮动,绝对定位,inline-block属性的元素,margin不会和垂直方向上的其他元素margin折叠.
+</code></pre><h4 id="对BFC规范-块级格式化上下文：block-formatting-context-的理解？"><a href="#对BFC规范-块级格式化上下文：block-formatting-context-的理解？" class="headerlink" title="对BFC规范(块级格式化上下文：block formatting context)的理解？"></a>对BFC规范(块级格式化上下文：block formatting context)的理解？</h4><pre><code>（W3C CSS 2.1 规范中的一个概念,它是一个独立容器，决定了元素如何对其内容进行定位,以及与其他元素的关系和相互作用。）
+ 一个页面是由很多个 Box 组成的,元素的类型和 display 属性,决定了这个 Box 的类型。
+ 不同类型的 Box,会参与不同的 Formatting Context（决定如何渲染文档的容器）,因此Box内的元素会以不同的方式渲染,也就是说BFC内部的元素和外部的元素不会互相影响。
+</code></pre><h4 id="css定义的权重"><a href="#css定义的权重" class="headerlink" title="css定义的权重"></a>css定义的权重</h4><pre><code>以下是权重的规则：标签的权重为1，class的权重为10，id的权重为100，以下例子是演示各种定义的权重值：
+
+/*权重为1*/
+div{
+}
+/*权重为10*/
+.class1{
+}
+/*权重为100*/
+#id1{
+}
+/*权重为100+1=101*/
+#id1 div{
+}
+/*权重为10+1=11*/
+.class1 div{
+}
+/*权重为10+10+1=21*/
+.class1 .class2 div{
+}
+</code></pre><p>如果权重相同，则最后定义的样式会起作用，但是应该避免这种情况出现</p>
 <h4 id="请解释一下为什么需要清除浮动？清除浮动的方式"><a href="#请解释一下为什么需要清除浮动？清除浮动的方式" class="headerlink" title="请解释一下为什么需要清除浮动？清除浮动的方式"></a>请解释一下为什么需要清除浮动？清除浮动的方式</h4><p>清除浮动是为了清除使用浮动元素产生的影响。浮动的元素，高度会塌陷，而高度的塌陷使我们页面后面的布局不能正常显示。</p>
 <pre><code>1、父级div定义height；
 2、父级div 也一起浮动；
@@ -661,12 +806,21 @@ Zoom属是IE浏览器的专有属性，火狐和老版本的webkit核心的浏�
 &lt;!-- link元素中的CSS媒体查询 --&gt;
 当媒体查询为真时，相关的样式表或样式规则会按照正常的级联规被应用。
 当媒体查询返回假， &lt;link&gt; 标签上带有媒体查询的样式表 仍将被下载 （只不过不会被应用）。
-</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">media</span>=<span class="string">"(max-width: 800px)"</span> <span class="attr">href</span>=<span class="string">"example.css"</span> /&gt;</span></div></pre></td></tr></table></figure>
-<pre><code>&lt;!-- 样式表中的CSS媒体查询 --&gt;
+
+&lt;link rel=&quot;stylesheet&quot; media=&quot;(max-width: 800px)&quot; href=&quot;example.css&quot; /&gt;
+
+&lt;!-- 样式表中的CSS媒体查询 --&gt;
 包含了一个媒体类型和至少一个使用 宽度、高度和颜色等媒体属性来限制样式表范围的表达式。
 CSS3加入的媒体查询使得无需修改内容便可以使样式应用于某些特定的设备范围。
-</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">700px</span>) and (orientation: landscape)&#123;</div><div class="line">    <span class="selector-class">.sidebar</span> &#123;</div><div class="line">        <span class="attribute">display</span>: none;</div><div class="line">    &#125;</div><div class="line">&#125;        </div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="使用-CSS-预处理器吗？喜欢那个？"><a href="#使用-CSS-预处理器吗？喜欢那个？" class="headerlink" title="使用 CSS 预处理器吗？喜欢那个？"></a>使用 CSS 预处理器吗？喜欢那个？</h4><pre><code>SASS (SASS、LESS没有本质区别，只因为团队前端都是用的SASS)
+
+&lt;style&gt;
+@media (min-width: 700px) and (orientation: landscape){
+    .sidebar {
+        display: none;
+    }
+}        
+&lt;/style&gt;
+</code></pre><h4 id="使用-CSS-预处理器吗？喜欢那个？"><a href="#使用-CSS-预处理器吗？喜欢那个？" class="headerlink" title="使用 CSS 预处理器吗？喜欢那个？"></a>使用 CSS 预处理器吗？喜欢那个？</h4><pre><code>SASS (SASS、LESS没有本质区别，只因为团队前端都是用的SASS)
 </code></pre><h4 id="CSS优化、提高性能的方法有哪些？"><a href="#CSS优化、提高性能的方法有哪些？" class="headerlink" title="CSS优化、提高性能的方法有哪些？"></a>CSS优化、提高性能的方法有哪些？</h4><pre><code>关键选择器（key selector）。选择器的最后面的部分为关键选择器（即用来匹配目标元素的部分）；
 如果规则拥有 ID 选择器作为其关键选择器，则不要为规则增加标签。过滤掉无关的规则（这样样式系统就不会浪费时间去匹配它们了）；
 提取项目的通用公有样式，增强可复用性，按模块编写组件；增强项目的协同开发性、可维护性和可扩展性;
@@ -698,8 +852,9 @@ padding用于元素与内容之间的间隔，让内容（文字）与（包裹�
 <h4 id="position-fixed-在android下无效怎么处理？"><a href="#position-fixed-在android下无效怎么处理？" class="headerlink" title="position:fixed;在android下无效怎么处理？"></a>position:fixed;在android下无效怎么处理？</h4><pre><code>fixed的元素是相对整个页面固定位置的，你在屏幕上滑动只是在移动这个所谓的viewport，
 原来的网页还好好的在那，fixed的内容也没有变过位置，
 所以说并不是iOS不支持fixed，只是fixed的元素不是相对手机屏幕固定的。
-</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"</span>/&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）"><a href="#如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）" class="headerlink" title="如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）"></a>如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）</h4><p>多数显示器默认频率是60Hz，即1秒刷新60次，所以理论上最小间隔为1/60＊1000ms ＝ 16.7ms</p>
+
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;/&gt;
+</code></pre><h4 id="如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）"><a href="#如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）" class="headerlink" title="如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）"></a>如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）</h4><p>多数显示器默认频率是60Hz，即1秒刷新60次，所以理论上最小间隔为1/60＊1000ms ＝ 16.7ms</p>
 <h4 id="display-inline-block-什么时候会显示间隙？-携程"><a href="#display-inline-block-什么时候会显示间隙？-携程" class="headerlink" title="display:inline-block 什么时候会显示间隙？(携程)"></a>display:inline-block 什么时候会显示间隙？(携程)</h4><p>移除空格、使用margin负值、使用font-size:0、letter-spacing、word-spacing</p>
 <h4 id="overflow-scroll时不能平滑滚动的问题怎么处理？"><a href="#overflow-scroll时不能平滑滚动的问题怎么处理？" class="headerlink" title="overflow: scroll时不能平滑滚动的问题怎么处理？"></a>overflow: scroll时不能平滑滚动的问题怎么处理？</h4><h4 id="有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。"><a href="#有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。" class="headerlink" title="有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。"></a>有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。</h4><h4 id="png、jpg、gif-这些图片格式解释一下，分别什么时候用。有没有了解过webp？"><a href="#png、jpg、gif-这些图片格式解释一下，分别什么时候用。有没有了解过webp？" class="headerlink" title="png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？"></a>png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？</h4><h4 id="什么是Cookie-隔离？（或者说：请求资源的时候不要让它带cookie怎么做）"><a href="#什么是Cookie-隔离？（或者说：请求资源的时候不要让它带cookie怎么做）" class="headerlink" title="什么是Cookie 隔离？（或者说：请求资源的时候不要让它带cookie怎么做）"></a>什么是Cookie 隔离？（或者说：请求资源的时候不要让它带cookie怎么做）</h4><pre><code>如果静态文件都放在主域名下，那静态文件请求的时候都带有的cookie的数据提交给server的，非常浪费流量，
 所以不如隔离开。
@@ -740,8 +895,18 @@ JavaScript对象是通过引用来传递的，我们创建的每个新对象实�
 
 当我们需要一个属性的时，Javascript引擎会先看当前对象中是否有这个属性， 如果没有的话，
 就会查找他的Prototype对象是否有这个属性，如此递推下去，一直检索到 Object 内建对象。
-</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Func</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">Func.prototype.name = <span class="string">"Sean"</span>;</div><div class="line">Func.prototype.getInfo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Func();<span class="comment">//现在可以参考var person = Object.create(oldObject);</span></div><div class="line"><span class="built_in">console</span>.log(person.getInfo());<span class="comment">//它拥有了Func的属性和方法</span></div><div class="line"><span class="comment">//"Sean"</span></div><div class="line"><span class="built_in">console</span>.log(Func.prototype);</div><div class="line"><span class="comment">// Func &#123; name="Sean", getInfo=function()&#125;</span></div></pre></td></tr></table></figure>
-<h4 id="JavaScript有几种类型的值？，你能画一下他们的内存图吗？"><a href="#JavaScript有几种类型的值？，你能画一下他们的内存图吗？" class="headerlink" title="JavaScript有几种类型的值？，你能画一下他们的内存图吗？"></a>JavaScript有几种类型的值？，你能画一下他们的内存图吗？</h4><pre><code>栈：原始数据类型（Undefined，Null，Boolean，Number、String）
+
+function Func(){}
+Func.prototype.name = &quot;Sean&quot;;
+Func.prototype.getInfo = function() {
+  return this.name;
+}
+var person = new Func();//现在可以参考var person = Object.create(oldObject);
+console.log(person.getInfo());//它拥有了Func的属性和方法
+//&quot;Sean&quot;
+console.log(Func.prototype);
+// Func { name=&quot;Sean&quot;, getInfo=function()}
+</code></pre><h4 id="JavaScript有几种类型的值？，你能画一下他们的内存图吗？"><a href="#JavaScript有几种类型的值？，你能画一下他们的内存图吗？" class="headerlink" title="JavaScript有几种类型的值？，你能画一下他们的内存图吗？"></a>JavaScript有几种类型的值？，你能画一下他们的内存图吗？</h4><pre><code>栈：原始数据类型（Undefined，Null，Boolean，Number、String）
 堆：引用数据类型（对象、数组和函数）
 
 两种类型的区别是：存储位置不同；
@@ -761,8 +926,20 @@ JavaScript对象是通过引用来传递的，我们创建的每个新对象实�
 4、拷贝继承
 
 原型prototype机制或apply和call方法去实现较简单，建议使用构造函数与原型混合方式。
-</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'wang'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.age = <span class="number">28</span>;</div><div class="line">&#125;</div><div class="line">Child.prototype = <span class="keyword">new</span> Parent();<span class="comment">//继承了Parent，通过原型</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> demo = <span class="keyword">new</span> Child();</div><div class="line">alert(demo.age);</div><div class="line">alert(demo.name);<span class="comment">//得到被继承的属性</span></div></pre></td></tr></table></figure>
-<h4 id="JavaScript继承的几种实现方式？"><a href="#JavaScript继承的几种实现方式？" class="headerlink" title="JavaScript继承的几种实现方式？"></a>JavaScript继承的几种实现方式？</h4><ul>
+
+function Parent(){
+    this.name = &apos;wang&apos;;
+}
+
+function Child(){
+    this.age = 28;
+}
+Child.prototype = new Parent();//继承了Parent，通过原型
+
+var demo = new Child();
+alert(demo.age);
+alert(demo.name);//得到被继承的属性
+</code></pre><h4 id="JavaScript继承的几种实现方式？"><a href="#JavaScript继承的几种实现方式？" class="headerlink" title="JavaScript继承的几种实现方式？"></a>JavaScript继承的几种实现方式？</h4><ul>
 <li>参考：<a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank" rel="external">构造函数的继承</a>，<a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html" target="_blank" rel="external">非构造函数的继承</a>；</li>
 </ul>
 <h4 id="javascript创建对象的几种方式？"><a href="#javascript创建对象的几种方式？" class="headerlink" title="javascript创建对象的几种方式？"></a>javascript创建对象的几种方式？</h4><p>javascript创建对象简单的说,无非就是使用内置对象或各种自定义对象，当然还可以用JSON；但写法有很多种，也能混合使用。</p>
